@@ -1,10 +1,10 @@
-package com.ecommerce.b2c_api_mysql;
+package com.talento.web;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class B2cApiMysqlApplicationTests {
+class EcommerceApiApplicationTests {
 
 	@Test
 	void contextLoads() {

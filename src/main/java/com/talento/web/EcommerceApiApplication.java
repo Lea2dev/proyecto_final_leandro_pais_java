@@ -1,13 +1,13 @@
-package com.ecommerce.b2c_api_mysql;
+package com.talento.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class B2cApiMysqlApplication {
+public class EcommerceApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(B2cApiMysqlApplication.class, args);
+		SpringApplication.run(EcommerceApiApplication.class, args);
 	}
 
 }
