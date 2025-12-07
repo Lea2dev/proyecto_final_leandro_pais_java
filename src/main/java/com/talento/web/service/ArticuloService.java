@@ -12,4 +12,10 @@ public interface ArticuloService {
     Articulo guardarArticulo(Articulo articulo);
     Articulo actualizarArticulo(Long id, Articulo articulo);
     void eliminarArticulo(Long id);
+    // busquedas
+    List<Articulo> buscarPorNombre(String nombre); 
+    List<Articulo> buscarPorPrecioMinimo(Double precioMinimo); 
+    List<Articulo> buscarPorPrecioMaximo(Double precioMaximo); 
+    List<Articulo> buscarPorPrecioEntre(Double precioMinimo, Double precioMaximo); 
+    List<Articulo> buscarPorNombreYPrecioEntre(String nombre, Double precioMinimo, Double precioMaximo); 
 }

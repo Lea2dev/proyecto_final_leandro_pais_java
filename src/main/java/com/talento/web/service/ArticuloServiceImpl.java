@@ -42,5 +42,35 @@ public class ArticuloServiceImpl implements ArticuloService {
     public void eliminarArticulo(Long id) {
         articuloRepository.deleteById(id);
     }
+
+    @Override
+    public List<Articulo> buscarPorNombre(String nombre) {
+        // TODO Auto-generated method stub
+        return articuloRepository.findByNombreContainingIgnoreCase(nombre);
+    }
+
+    @Override
+    public List<Articulo> buscarPorPrecioMinimo(Double precioMinimo) {
+        // TODO Auto-generated method stub
+        return articuloRepository.findByPrecioGreaterThanEqual(precioMinimo);
+    }
+
+    @Override
+    public List<Articulo> buscarPorPrecioMaximo(Double precioMaximo) {
+        // TODO Auto-generated method stub
+        return articuloRepository.findByPrecioLessThanEqual(precioMaximo);
+    }
+
+    @Override
+    public List<Articulo> buscarPorPrecioEntre(Double precioMinimo, Double precioMaximo) {
+        // TODO Auto-generated method stub
+        return articuloRepository.findByPrecioBetween(precioMinimo, precioMaximo);
+    }
+
+    @Override
+    public List<Articulo> buscarPorNombreYPrecioEntre(String nombre, Double precioMinimo, Double precioMaximo) {
+        // TODO Auto-generated method stub
+        return articuloRepository.findByNombreContainingIgnoreCaseAndPrecioBetween(nombre, precioMinimo, precioMaximo);
+    }
 }
 

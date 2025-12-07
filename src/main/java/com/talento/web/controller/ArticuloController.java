@@ -2,6 +2,7 @@ package com.talento.web.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.talento.web.model.Articulo;
 import com.talento.web.service.ArticuloService;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*") // test locales, quitar en produccion
 @RestController
 @RequestMapping("/api/articulos")
 public class ArticuloController {
@@ -64,6 +65,34 @@ public class ArticuloController {
         }
         articuloService.eliminarArticulo(id);
         return ResponseEntity.noContent().build();
+    }
+
+    
+    @GetMapping("/buscar") // filtros
+    public List<Articulo> buscar(
+            // parametros opcionales, required false
+            @RequestParam(required = false) String nombre,   
+            @RequestParam(required = false) Double minPrecio, 
+            @RequestParam(required = false) Double maxPrecio
+    ) { 
+        
+        if (nombre != null && minPrecio != null && maxPrecio != null) { 
+            return articuloService.buscarPorNombreYPrecioEntre(nombre, minPrecio, maxPrecio); 
+        }
+        else if (nombre != null && minPrecio == null && maxPrecio == null) { 
+            return articuloService.buscarPorNombre(nombre); 
+        }
+        else if (nombre == null && minPrecio != null && maxPrecio != null) { 
+            return articuloService.buscarPorPrecioEntre(minPrecio, maxPrecio); 
+        }
+        else if (minPrecio != null && maxPrecio == null && nombre == null) {
+            return articuloService.buscarPorPrecioMinimo(minPrecio); 
+        }
+        else if (maxPrecio != null && minPrecio == null && nombre == null) { 
+            return articuloService.buscarPorPrecioMaximo(maxPrecio); 
+        }
+        // si no se cumple nada lista todo
+        return articuloService.listarArticulos();
     }
 
 }
