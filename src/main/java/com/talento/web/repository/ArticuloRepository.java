@@ -23,4 +23,8 @@ public interface ArticuloRepository extends JpaRepository<Articulo, Long> {
 
     List<Articulo> findByNombreContainingIgnoreCaseAndPrecioBetween(String nombre, Double precioMinimo, Double precioMaximo);
 
+    List<Articulo> findByNombreContainingIgnoreCaseAndPrecioGreaterThan(String nombre, Double minPrecio);
+
+    List<Articulo> findByNombreContainingIgnoreCaseAndPrecioLessThan(String nombre, Double maxPrecio);
+
 }

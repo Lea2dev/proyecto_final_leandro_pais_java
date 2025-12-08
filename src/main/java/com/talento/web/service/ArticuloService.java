@@ -17,5 +17,7 @@ public interface ArticuloService {
     List<Articulo> buscarPorPrecioMinimo(Double precioMinimo); 
     List<Articulo> buscarPorPrecioMaximo(Double precioMaximo); 
     List<Articulo> buscarPorPrecioEntre(Double precioMinimo, Double precioMaximo); 
-    List<Articulo> buscarPorNombreYPrecioEntre(String nombre, Double precioMinimo, Double precioMaximo); 
+    List<Articulo> buscarPorNombreYPrecioEntre(String nombre, Double precioMinimo, Double precioMaximo);
+    List<Articulo> buscarPorNombreYminPrecio(String nombre, Double minPrecio);
+    List<Articulo> buscarPorNombreYmaxPrecio(String nombre, Double maxPrecio); 
 }

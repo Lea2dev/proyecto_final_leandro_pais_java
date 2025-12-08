@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.talento.web.model.Articulo;
 import com.talento.web.service.ArticuloService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -90,6 +89,12 @@ public class ArticuloController {
         }
         else if (maxPrecio != null && minPrecio == null && nombre == null) { 
             return articuloService.buscarPorPrecioMaximo(maxPrecio); 
+        }
+        else if (nombre != null && minPrecio != null && maxPrecio == null) {  // agrego busqueda con nombre y precio minimo
+            return articuloService.buscarPorNombreYminPrecio(nombre,minPrecio); 
+        }
+        else if (nombre != null && minPrecio == null && maxPrecio != null) {  // agrego busqueda con nombre y precio maxima
+            return articuloService.buscarPorNombreYmaxPrecio(nombre,maxPrecio); 
         }
         // si no se cumple nada lista todo
         return articuloService.listarArticulos();
