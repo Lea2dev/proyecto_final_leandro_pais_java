@@ -7,17 +7,19 @@ import jakarta.persistence.*;
 public class Articulo extends Producto {
 
     @Id // PK
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // AI
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // AutoIncremental
     private Long id;
 
     private String nombre;
     private double precio;
-    private String categoria;
     private String imagen;
+    @ManyToOne // Un artículo pertenece a una sola categoría, pero una categoría puede tener muchos artículos
+    @JoinColumn(name = "categoria_id") // Nombre de la columna que guarda la clave foránea hacia Categoria
+    private Categoria categoria; // Referencia a la categoría asociada al artículo    
 
     public Articulo() {}
 
-    public Articulo(Long id, String nombre, double precio, String categoria, String imagen) {
+    public Articulo(Long id, String nombre, double precio, Categoria categoria, String imagen) {
         this.nombre = nombre;
         this.precio = precio;
         this.id = id;
@@ -56,11 +58,11 @@ public class Articulo extends Producto {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) { 
+    public void setCategoria(Categoria categoria) { 
         this.categoria = categoria;
     }
 
