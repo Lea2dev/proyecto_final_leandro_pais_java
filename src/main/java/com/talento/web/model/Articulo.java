@@ -8,10 +8,13 @@ public class Articulo extends Producto {
 
     @Id // PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // AutoIncremental
+    @Column(name = "id")
     private Long id;
-
+    @Column(name = "nombre", nullable = false, length = 200)
     private String nombre;
+    @Column(name = "precio", nullable = false)
     private double precio;
+    @Column(name = "imagen", nullable = true, length = 500)
     private String imagen;
     @ManyToOne // Un artículo pertenece a una sola categoría, pero una categoría puede tener muchos artículos
     @JoinColumn(name = "categoria_id") // Nombre de la columna que guarda la clave foránea hacia Categoria

@@ -17,11 +17,11 @@ public class Categoria {
     @Column(name = "id")
     private Long id;
 
-    //@Column(name = "nombre", nullable = false, length = 200) // Columna para el nombre, obligatorio
-    private String nombre; // Nombre de la categoría (ej: "Electrónica", "Hogar", etc.)
+    @Column(name = "nombre", nullable = false, length = 200) 
+    private String nombre; 
 
-    //@Column(name = "descripcion", nullable = true, length = 500) // Descripción opcional, hasta 500 caracteres
-    private String descripcion; // Descripción más detallada de la categoría
+    @Column(name = "descripcion", nullable = true, length = 500)
+    private String descripcion; 
 
     public Categoria() {} 
 
