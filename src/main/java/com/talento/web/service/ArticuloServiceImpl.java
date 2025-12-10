@@ -45,43 +45,36 @@ public class ArticuloServiceImpl implements ArticuloService {
 
     @Override
     public List<Articulo> buscarPorNombre(String nombre) {
-        // TODO Auto-generated method stub
         return articuloRepository.findByNombreContainingIgnoreCase(nombre);
     }
 
     @Override
     public List<Articulo> buscarPorPrecioMinimo(Double precioMinimo) {
-        // TODO Auto-generated method stub
         return articuloRepository.findByPrecioGreaterThanEqual(precioMinimo);
     }
 
     @Override
     public List<Articulo> buscarPorPrecioMaximo(Double precioMaximo) {
-        // TODO Auto-generated method stub
         return articuloRepository.findByPrecioLessThanEqual(precioMaximo);
     }
 
     @Override
     public List<Articulo> buscarPorPrecioEntre(Double precioMinimo, Double precioMaximo) {
-        // TODO Auto-generated method stub
         return articuloRepository.findByPrecioBetween(precioMinimo, precioMaximo);
     }
 
     @Override
     public List<Articulo> buscarPorNombreYPrecioEntre(String nombre, Double precioMinimo, Double precioMaximo) {
-        // TODO Auto-generated method stub
         return articuloRepository.findByNombreContainingIgnoreCaseAndPrecioBetween(nombre, precioMinimo, precioMaximo);
     }
 
     @Override
     public List<Articulo> buscarPorNombreYminPrecio(String nombre, Double minPrecio) {
-        // TODO Auto-generated method stub
         return articuloRepository.findByNombreContainingIgnoreCaseAndPrecioGreaterThan(nombre, minPrecio);
     }
 
     @Override
     public List<Articulo> buscarPorNombreYmaxPrecio(String nombre, Double maxPrecio) {
-        // TODO Auto-generated method stub
         return articuloRepository.findByNombreContainingIgnoreCaseAndPrecioLessThan(nombre, maxPrecio);
     }
 }
