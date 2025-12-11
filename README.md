@@ -7,7 +7,7 @@ Sin Front.
 
 Link al video: [Ver video](https://youtu.be/EwOWmqJ5f4Y)
 
-Link al fron: [En GitHub](https://github.com/Lea2dev/proyecto_final_leandro_pais_java_font)
+Link al front: [En GitHub](https://github.com/Lea2dev/proyecto_final_leandro_pais_java_font)
 
 ## Autor
 
